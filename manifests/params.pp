@@ -12,7 +12,7 @@ class prometheus::params {
   $package_ensure = 'latest'
   $package_name = 'prometheus-systemd'
   $download_url_base = 'https://github.com/prometheus/prometheus/releases'
-  $version = '1.2.1'
+  $version = '1.4.1'
   $download_extension = 'tar.gz'
   $node_exporter_download_url_base = 'https://github.com/prometheus/node_exporter/releases'
   $node_exporter_version = '0.12.0'
@@ -45,6 +45,13 @@ class prometheus::params {
     'static_configs'  => [ { 'targets'=> [ 'localhost:9090' ], 'labels'=> { 'alias'=> 'Prometheus'} } ]
   }]
 
+  $alerting_config = {
+    'alertmanagers' => [
+       {
+         'static_configs' => [{ 'targets' => [ 'localhost:9093' ] }]
+       }
+     ]
+  }
 
   case $::architecture {
     'x86_64', 'amd64': { $arch = 'amd64' }
