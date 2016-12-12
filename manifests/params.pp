@@ -10,7 +10,7 @@ class prometheus::params {
   $shared_dir = '/usr/share/prometheus'
   $install_method = 'package'
   $package_ensure = 'latest'
-  $package_name = 'prometheus-systemd'
+  $package_name = 'prometheus'
   $download_url_base = 'https://github.com/prometheus/prometheus/releases'
   $version = '1.4.1'
   $download_extension = 'tar.gz'
