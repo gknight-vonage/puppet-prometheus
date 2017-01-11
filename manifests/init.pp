@@ -136,7 +136,8 @@ class prometheus (
   $global_config        = $::prometheus::params::global_config,
   $rule_files           = $::prometheus::params::rule_files,
   $scrape_configs       = $::prometheus::params::scrape_configs,
-  $alerts               = $::prometheus::params::alerts
+  $alerts               = $::prometheus::params::alerts,
+  $alerting_config      = $::prometheus::params::alerting_config
 
 ) inherits prometheus::params {
   if( versioncmp($::prometheus::version, '1.0.0') == -1 ){

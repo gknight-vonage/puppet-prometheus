@@ -1,6 +1,7 @@
 # Class prometheus::params
 # Include default parameters for prometheus class
 class prometheus::params {
+  $alerting_config = {'alertmanagers'=>[{'static_configs' => [{'targets'=>['localhost:9093']}]}]}
   $alertmanager_config_dir = '/etc/alertmanager'
   $alertmanager_config_file = "${alertmanager_config_dir}/alertmanager.yaml"
   $alertmanager_download_extension = 'tar.gz'
